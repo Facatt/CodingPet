@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.vsix
+overlay/dist/
+overlay/node_modules/
+.vscode-test/
+*.js.map
+*.d.ts
+!webpack.config.js
+!scripts/*.js

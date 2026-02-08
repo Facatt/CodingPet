@@ -1,0 +1,13 @@
+.vscode/**
+.vscode-test/**
+src/**
+overlay/src/**
+overlay/renderer/**
+overlay/node_modules/**
+node_modules/**
+.gitignore
+*.map
+*.ts
+tsconfig.json
+webpack.config.js
+scripts/**
