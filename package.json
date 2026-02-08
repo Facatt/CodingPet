@@ -1,0 +1,159 @@
+{
+  "name": "coding-pet",
+  "displayName": "CodingPet - 程序员陪伴师",
+  "description": "一个可爱的桌面宠物陪伴师，内置多模态大模型，陪你写代码、聊天、提醒休息",
+  "version": "0.1.0",
+  "publisher": "codingpet",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "icon": "assets/ui/icon.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codingpet.activate",
+        "title": "CodingPet: 启动陪伴师"
+      },
+      {
+        "command": "codingpet.deactivate",
+        "title": "CodingPet: 关闭陪伴师"
+      },
+      {
+        "command": "codingpet.openChat",
+        "title": "CodingPet: 打开聊天"
+      },
+      {
+        "command": "codingpet.changeCharacter",
+        "title": "CodingPet: 切换角色"
+      },
+      {
+        "command": "codingpet.changeVoice",
+        "title": "CodingPet: 切换语音包"
+      },
+      {
+        "command": "codingpet.settings",
+        "title": "CodingPet: 设置"
+      }
+    ],
+    "configuration": {
+      "title": "CodingPet 陪伴师设置",
+      "properties": {
+        "codingpet.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Key（用于GPT-4o对话和Whisper语音识别）"
+        },
+        "codingpet.openaiBaseUrl": {
+          "type": "string",
+          "default": "https://api.openai.com/v1",
+          "description": "OpenAI API Base URL（可配置代理地址）"
+        },
+        "codingpet.character": {
+          "type": "string",
+          "enum": [
+            "cute-girl",
+            "cat",
+            "dog",
+            "custom"
+          ],
+          "default": "cute-girl",
+          "description": "陪伴师角色形象"
+        },
+        "codingpet.voicePack": {
+          "type": "string",
+          "enum": [
+            "cute-girl",
+            "mature-woman",
+            "taiwanese",
+            "male-smoky",
+            "male-bubble",
+            "custom"
+          ],
+          "default": "cute-girl",
+          "description": "语音包选择"
+        },
+        "codingpet.ttsProvider": {
+          "type": "string",
+          "enum": [
+            "edge-tts",
+            "fish-speech"
+          ],
+          "default": "edge-tts",
+          "description": "TTS语音合成服务提供者"
+        },
+        "codingpet.fishSpeechUrl": {
+          "type": "string",
+          "default": "http://localhost:8080",
+          "description": "Fish Speech API地址（声纹克隆用）"
+        },
+        "codingpet.healthReminderInterval": {
+          "type": "number",
+          "default": 45,
+          "description": "久坐提醒间隔（分钟）"
+        },
+        "codingpet.enableCodeTips": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否启用代码编写提示"
+        },
+        "codingpet.enableNewsBroadcast": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否启用新闻播报"
+        },
+        "codingpet.enableProactiveChat": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否启用主动聊天（心情关怀、哲学讨论等）"
+        },
+        "codingpet.enableVoiceOutput": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否启用语音输出"
+        },
+        "codingpet.customCharacterPath": {
+          "type": "string",
+          "default": "",
+          "description": "自定义角色图片路径"
+        },
+        "codingpet.customVoicePath": {
+          "type": "string",
+          "default": "",
+          "description": "自定义声纹参考音频路径（Fish Speech用）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "build:overlay": "cd overlay && npm run build",
+    "dev": "concurrently \"npm run watch\" \"cd overlay && npm run dev\"",
+    "package": "vsce package",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@types/ws": "^8.5.10",
+    "concurrently": "^8.2.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "node-edge-tts": "^1.2.10",
+    "node-fetch": "^2.7.0",
+    "openai": "^4.28.0",
+    "ws": "^8.16.0"
+  }
+}
