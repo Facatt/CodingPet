@@ -1,0 +1,101 @@
+/* ====== Pet Character Styles ====== */
+
+.pet-breathing {
+  animation: breathing 3s ease-in-out infinite;
+}
+
+@keyframes breathing {
+  0%, 100% { transform: translateX(-50%) scaleY(1); }
+  50% { transform: translateX(-50%) scaleY(1.02); }
+}
+
+.pet-talking {
+  animation: talking 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes talking {
+  0% { transform: translateX(-50%) scaleY(1); }
+  100% { transform: translateX(-50%) scaleY(1.03) scaleX(0.98); }
+}
+
+.pet-happy {
+  animation: happy 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes happy {
+  0% { transform: translateX(-50%) translateY(0) rotate(-2deg); }
+  100% { transform: translateX(-50%) translateY(-8px) rotate(2deg); }
+}
+
+.pet-worried {
+  animation: worried 1s ease-in-out infinite;
+}
+
+@keyframes worried {
+  0%, 100% { transform: translateX(-50%) translateX(0); }
+  25% { transform: translateX(-50%) translateX(-3px); }
+  75% { transform: translateX(-50%) translateX(3px); }
+}
+
+.pet-angry {
+  animation: angry 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes angry {
+  0% { transform: translateX(-50%) rotate(-1deg); }
+  100% { transform: translateX(-50%) rotate(1deg); }
+}
+
+.pet-excited {
+  animation: excited 0.4s ease-in-out infinite;
+}
+
+@keyframes excited {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1) translateY(-5px); }
+}
+
+.pet-thinking {
+  animation: thinking 2s ease-in-out infinite;
+}
+
+@keyframes thinking {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-3px); }
+}
+
+.pet-svg-container {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eye-blink {
+  animation: blink 4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.mouth-talk {
+  animation: mouthTalk 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes mouthTalk {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(1.5); }
+}
+
+.tail-wag {
+  animation: tailWag 0.8s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes tailWag {
+  0% { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}

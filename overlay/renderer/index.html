@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' ws://127.0.0.1:* data: blob:; media-src 'self' blob: data:; img-src 'self' data: file:;">
+  <title>CodingPet</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pet.css">
+  <link rel="stylesheet" href="styles/chat.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 宠物角色区域 -->
+    <div id="pet-area" class="pet-area">
+      <canvas id="pet-canvas" width="200" height="200"></canvas>
+      <div id="emotion-indicator" class="emotion-indicator"></div>
+    </div>
+
+    <!-- 通知气泡 -->
+    <div id="notification-bubble" class="notification-bubble hidden">
+      <div class="notification-content">
+        <span id="notification-text"></span>
+      </div>
+      <div class="notification-arrow"></div>
+    </div>
+
+    <!-- 聊天面板 -->
+    <div id="chat-panel" class="chat-panel hidden">
+      <div class="chat-header">
+        <span class="chat-title">💬 和陪伴师聊天</span>
+        <button id="chat-close-btn" class="chat-close-btn">✕</button>
+      </div>
+      <div id="chat-messages" class="chat-messages">
+        <div class="message assistant">
+          <div class="message-bubble">你好呀！我是你的程序员陪伴师，点我聊天或者有代码问题随时问我哦~ 😊</div>
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <textarea id="chat-input" class="chat-input" placeholder="输入消息..." rows="1"></textarea>
+        <button id="voice-btn" class="icon-btn voice-btn" title="按住说话">🎤</button>
+        <button id="send-btn" class="icon-btn send-btn" title="发送">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
